@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attendace', function (Blueprint $table) {
+        Schema::create('attendance', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('marked_by'); //id of marked teacher
             $table->unsignedBigInteger('student');
@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('marked_by')->references('id')->on('teachers');
             $table->foreign('student')->references('id')->on('students');
             $table->foreign('subject')->references('id')->on('subjects');
+      
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attendace');
+        Schema::dropIfExists('attendance');
     }
 };
