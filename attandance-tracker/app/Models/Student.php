@@ -14,4 +14,8 @@ class Student extends Model
     's_last_name',
     'dob'
     ];
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class,'enrolled', 'student', 'subject');
+    }
 }

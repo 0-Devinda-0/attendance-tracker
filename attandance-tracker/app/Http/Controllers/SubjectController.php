@@ -12,7 +12,12 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        // get all subjecst in the table
+        $subjects = Subject::all();
+
+        //hides unnessasary fields
+        $subjects->makeHidden(['created_at', 'updated_at']);
+        return response()->json(['subjects' => $subjects]);
     }
 
     /**
