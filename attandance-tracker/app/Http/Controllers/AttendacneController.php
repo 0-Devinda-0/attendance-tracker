@@ -11,6 +11,7 @@ class AttendacneController extends Controller
     public function markAttendance(Request $request){
         $studentIds = $request->input('students');
         $subjectId = $request->input('subject_id');
+        //set teacher id to 1 since there is no login
         //$teacherId = $request->input('teacherId');
         $teacherId = 1;
         foreach($studentIds as $studentId){
